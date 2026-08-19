@@ -1,0 +1,16 @@
+Galería de fotos
+=================
+
+Las primeras 6 fotos ya están cargadas y funcionando (escritas directo en
+index.html, para que se vean sí o sí al abrir el archivo con doble clic).
+
+Cómo agregar más fotos
+-----------------------
+1. Copiá la imagen nueva en esta carpeta ("images").
+2. Renombrala como gallery-7.jpg, gallery-8.jpg, gallery-9.jpg, etc.
+   (siguiendo el número; también funciona con .jpeg o .png)
+3. Guardá y recargá index.html.
+
+Si después de hacer esto la foto nueva no aparece (puede pasar según el
+navegador), avisame el nombre del archivo y la agrego directo al código,
+igual que las primeras 6.

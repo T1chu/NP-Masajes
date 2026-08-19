@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Panel administrador | NP Masajes</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+<style>
+  .admin-wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--naranja-claro) 0%, var(--gris-claro) 100%);
+    padding: 24px;
+  }
+  .admin-card {
+    background: var(--blanco);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+  }
+  .admin-card h1 {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .admin-card .sub {
+    text-align: center;
+    color: var(--gris);
+    font-size: 0.9rem;
+    margin-bottom: 28px;
+  }
+  .campo { margin-bottom: 18px; }
+  .campo label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--gris);
+    margin-bottom: 6px;
+  }
+  .campo input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--gris-medio);
+    font-family: inherit;
+    font-size: 1rem;
+  }
+  .campo input:focus { outline: 2px solid var(--naranja-suave); }
+  .error-msg {
+    color: #c0392b;
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+    display: none;
+  }
+  .panel {
+    display: none;
+    min-height: 100vh;
+    background: var(--gris-claro);
+    padding: 40px 24px;
+  }
+  .panel-header {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .panel-header a { color: var(--gris); font-size: 0.9rem; }
+  .panel-box {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--blanco);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    padding: 36px;
+  }
+  .precio-fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--gris-claro);
+  }
+  .precio-fila:last-of-type { border-bottom: none; }
+  .precio-fila .nombre { font-weight: 600; }
+  .precio-fila .nombre small {
+    display: block;
+    font-weight: 400;
+    color: var(--gris);
+    font-size: 0.8rem;
+  }
+  .precio-fila .input-precio {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .precio-fila .input-precio span { color: var(--gris); }
+  .precio-fila input {
+    width: 130px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--gris-medio);
+    font-family: inherit;
+    font-size: 1rem;
+    text-align: right;
+  }
+  .guardar-msg {
+    margin-top: 20px;
+    text-align: center;
+    color: #2e7d32;
+    font-weight: 600;
+    display: none;
+  }
+  .btn-full { width: 100%; margin-top: 24px; }
+  .btn-secundario {
+    background: transparent;
+    color: var(--gris);
+    border: 1px solid var(--gris-medio);
+  }
+  .btn-secundario:hover { background: var(--gris-medio); color: var(--texto); }
+</style>
+</head>
+<body>
+
+<!-- ---- Pantalla de login ---- -->
+<div class="admin-wrap" id="pantalla-login">
+  <div class="admin-card">
+    <h1>NP Masajes</h1>
+    <p class="sub">Panel administrador</p>
+    <p class="error-msg" id="error-msg">Usuario o contraseña incorrectos.</p>
+    <form id="form-login">
+      <div class="campo">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" autocomplete="username" required />
+      </div>
+      <div class="campo">
+        <label for="clave">Contraseña</label>
+        <input type="password" id="clave" autocomplete="current-password" required />
+      </div>
+      <button type="submit" class="btn btn-full">Ingresar</button>
+    </form>
+    <p style="text-align:center; margin-top:20px;"><a href="index.html" style="color:var(--gris); font-size:0.85rem;">&larr; Volver al sitio</a></p>
+  </div>
+</div>
+
+<!-- ---- Panel de precios ---- -->
+<div class="panel" id="panel-precios">
+  <div class="panel-header">
+    <h2>Editar precios</h2>
+    <div>
+      <a href="index.html" style="margin-right:16px;">Ver sitio</a>
+      <button id="btn-logout" class="btn btn-secundario" style="padding:8px 18px;">Cerrar sesión</button>
+    </div>
+  </div>
+  <div class="panel-box">
+    <div id="lista-precios"></div>
+    <button id="btn-guardar" class="btn btn-full">Guardar cambios</button>
+    <p class="guardar-msg" id="guardar-msg">Precios actualizados correctamente.</p>
+  </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
